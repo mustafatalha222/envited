@@ -1,0 +1,22 @@
+.ant-collapse{
+    background-color: transparent;
+    border: 0px;
+    .ant-collapse-item{
+        border: 0px;
+        .ant-collapse-header{
+            padding: 15px 0px;
+           flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+    }
+}
+
+.ant-upload.ant-upload-select-picture-card{
+    width: 100%;
+    height: 45vh;
+}
+.ant-image {
+    display: block !important;
+}
