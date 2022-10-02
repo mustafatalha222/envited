@@ -5,8 +5,8 @@ import { CONSTANTS } from "../utils";
 
 function App() {
   const routes = [
-    { path: CONSTANTS.ROUTES.HOME, exact: false, element: <LandingPage /> },
-    { path: CONSTANTS.ROUTES.EVENT, exact: false, element: <EventDetail /> },
+    { path: CONSTANTS.ROUTES.HOME, exact: true, element: <LandingPage /> },
+    { path: CONSTANTS.ROUTES.EVENT_ID, exact: false, element: <EventDetail /> },
     { path: CONSTANTS.ROUTES.EVENTS, exact: false, element: <EventList /> },
   ];
 

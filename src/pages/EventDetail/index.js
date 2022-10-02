@@ -4,12 +4,23 @@ import { Upload, Image, Collapse, DatePicker, Input } from "antd";
 import { useUpload } from "../../hooks";
 import { CONSTANTS, IMAGES } from "../../utils";
 import { Button } from "../../components";
+import { useEffect } from "react";
 
 const { Panel } = Collapse;
 
 export default function EventDetail() {
   const navigate = useNavigate();
-  const { beforeUpload, imageUrl, uploadButton, handleChange } = useUpload();
+  const { beforeUpload, imageUrl, uploadButton, handleChange, setImageUrl } =
+    useUpload();
+
+  let eventId = location.pathname.split("/")[2];
+  let isEventId = eventId !== "new";
+
+  useEffect(() => {
+    if (isEventId) {
+      setImageUrl(IMAGES.Event);
+    }
+  }, []);
 
   const Icon = ({ image }) => {
     return (
@@ -24,9 +35,13 @@ export default function EventDetail() {
       <div className={styles.container}>
         <section className={styles.detailWrapper}>
           <div className={styles.eventWrapper}>
-            <span className={styles.name}>Event name</span>
+            <span className={styles.name}>
+              {isEventId ? `Birthday Bash ${eventId}` : "Event name"}
+            </span>
             <br />
-            <span className={styles.hosted}>Hosted by Talha</span>
+            <span className={styles.hosted}>
+              Hosted by Talha {isEventId && eventId}
+            </span>
           </div>
 
           <div>
@@ -59,7 +74,9 @@ export default function EventDetail() {
                     <div>
                       <span className={styles.themeColor}>Street address</span>
                       <br />
-                      <span>B block address</span>
+                      {isEventId && (
+                        <span>B block address {isEventId && eventId}</span>
+                      )}
                     </div>
                   </div>
                 }
@@ -77,7 +94,7 @@ export default function EventDetail() {
                     <div>
                       <span className={styles.themeColor}>Link</span>
                       <br />
-                      <span>netflix.com</span>
+                      {isEventId && <span>netflix.com</span>}
                     </div>
                   </div>
                 }

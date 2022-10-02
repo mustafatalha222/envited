@@ -1,6 +1,7 @@
 const ROUTES = {
   HOME: "/",
-  EVENT: "/event/:id",
+  EVENT: "/event",
+  EVENT_ID: "/event/:id",
   EVENT_NEW: "/event/new",
   EVENTS: "/events",
 };
